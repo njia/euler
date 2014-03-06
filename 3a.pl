@@ -8,7 +8,6 @@ sub isprime {
   my $number = $_[0];
   my $root = int $number**0.5;
   return 1 if ($number == 2 || $number == 3);
-  return -1 if ($number %2 == 0 || $number %3 == 0 );
     for (my $i=2; $i<=$root; $i++)  {
       return -1 if ($number % $i == 0)
     }

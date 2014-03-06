@@ -4,6 +4,8 @@
 use warnings;
 use strict;
 
+my @primelist = (0);
+
 sub isprime {
   my $number = $_[0];
   my $root = int $number**0.5 + 1;
@@ -14,13 +16,12 @@ sub isprime {
     return 1;
   }
 
-  my $count = 1;
   my $start = 1;
 
-  while ($count <= 10001) {
+  while ($start < 2000000) {
     $start += 1;
-    $count++ if (&isprime($start) == 1);
+    push @primelist, $start if (&isprime($start) == 1);
   }
 
-  print $start, "\n";
+  print eval join "+", @primelist;
 
