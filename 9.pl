@@ -20,8 +20,8 @@ sub pytha {
 }
 
 for (my $i=1; $i<1000; $i++) {
-  for (my $j=1; $j<(1000-$i); $j++) {
-    for (my $k=1; $k<1000; $k++) {
+  for (my $j=$i; $j<1000; $j++) {
+    for (my $k=$j; $k<1000; $k++) {
       if ((&sum3($i, $j, $k) == 1) && (&pytha($i,$j,$k)) == 1) {
         print $i*$j*$k;
         exit 0;
