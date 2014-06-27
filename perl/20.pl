@@ -12,18 +12,13 @@ use bigint;
 
 sub jiecheng {
   my $number = $_[0];
-  return 1 if $number < 2;
+  return 2 if $number == 2;
   $number * jiecheng($number -1);
 }
 
 my $big = &jiecheng(100);
 $big =~ s/0//g;
-my @list =();
-my $i=0;
 
-while ($_ = substr $big, $i, 1) {
-  push @list, $_;
-  $i++;
-}
+print eval join "+", split(//, $big);
+print "\n";
 
-print eval join "+", @list;
