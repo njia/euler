@@ -6,9 +6,10 @@ use constant ONE_MILLION => 1000000;
 
 my $start = 0;
 my $sum = 0;
+my $bin = '';
 
 while ($start < ONE_MILLION) {
-  my $bin = sprintf("%b", $start);
+  $bin = sprintf("%b", $start);
 
   if ((scalar reverse $start) == $start and (scalar reverse $bin) == $bin) {
     $sum += $start;
