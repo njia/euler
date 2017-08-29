@@ -32,35 +32,35 @@ for ($row=0;$row<20;$row++) {
     next if $array[$row][$col] == 0;
     #left
     if ($col >= 3) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row][$col-1], $array[$row][$col-2], $array[$row][$col-3]);
+      push @products, $array[$row][$col]*$array[$row][$col-1]*$array[$row][$col-2]*$array[$row][$col-3];
     }
     #right
     if ($col <= 16) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row][$col+1], $array[$row][$col+2], $array[$row][$col+3]);
+      push @products, $array[$row][$col]*$array[$row][$col+1]*$array[$row][$col+2]*$array[$row][$col+3];
     }
     #up
     if ($row >= 3) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row-1][$col], $array[$row-2][$col], $array[$row-3][$col]);
+      push @products, $array[$row][$col]*$array[$row-1][$col]*$array[$row-2][$col]*$array[$row-3][$col];
     }
     #down
     if ($row <= 16) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row+1][$col], $array[$row+2][$col], $array[$row+3][$col]);
+      push @products, $array[$row][$col]*$array[$row+1][$col]*$array[$row+2][$col]*$array[$row+3][$col];
     }
     #left up
     if ($row >= 3 and $col >= 3) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row-1][$col-1], $array[$row-2][$col-2], $array[$row-3][$col-3]);
+      push @products, $array[$row][$col]*$array[$row-1][$col-1]*$array[$row-2][$col-2]*$array[$row-3][$col-3];
     }
     #left down
     if ($row <= 16 and $col >= 3) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row+1][$col-1], $array[$row+2][$col-2], $array[$row+3][$col-3]);
+      push @products, $array[$row][$col]*$array[$row+1][$col-1]*$array[$row+2][$col-2]*$array[$row+3][$col-3];
     }
     #right up
     if ($row >= 3 and $col <= 16) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row-1][$col+1], $array[$row-2][$col+2], $array[$row-3][$col+3]);
+      push @products, $array[$row][$col]*$array[$row-1][$col+1]*$array[$row-2][$col+2]*$array[$row-3][$col+3];
     }
     #right down
     if ($row <= 16 and $col <= 16) {
-      push @products, (eval join "*", $array[$row][$col], $array[$row+1][$col+1], $array[$row+2][$col+2], $array[$row+3][$col+3]);
+      push @products, $array[$row][$col]*$array[$row+1][$col+1]*$array[$row+2][$col+2]*$array[$row+3][$col+3];
     }
   }
 }
