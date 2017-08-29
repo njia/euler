@@ -12,22 +12,12 @@ my $string = <IN_FILE>;
 chomp $string;
 
 my @products=();
+my $temp;
 
-for (my $i=0; $i<=999;$i++) {
-  my $temp = substr($string, $i, 5);
-  # print "Temp number is ", $temp, "\n";
-    my @five = ();
-    push @five, chop $temp;
-    push @five, chop $temp;
-    push @five, chop $temp;
-    push @five, chop $temp;
-    push @five, chop $temp;
-    # print "five is ", @five, "\n";
-    # print "product is ", ($five[0]*$five[1]*$five[2]*$five[3]*$five[4]), "\n";
-    push @products, $five[0]*$five[1]*$five[2]*$five[3]*$five[4];
+for (my $i=0; $i<=999; $i++) {
+  $temp = substr($string, $i, 5);
+  next if $temp =~ /0/;
+  push @products, (eval join "*", (split //, $temp));
 }
 
-print max @products;
-
-
-
+print "The product is: ", (max @products), "\n";
